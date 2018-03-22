@@ -19,9 +19,9 @@ class mlp(object):
         self.rng = numpy.random.RandomState(state['seed'])
         self.srng = RandomStreams(self.rng.randint(1e5))
         self.data = data
-        self.nin = data.xdim
+        self.nin = int(data.xdim)
         self.state = state
-        self.nout = data.ydim
+        self.nout = int(data.ydim)
 
         #######################
         # 0. Training functions
@@ -77,6 +77,8 @@ class mlp(object):
         givens = {}
         givens[self.x] = self.data._valid_x
         givens[self.y] = self.data._valid_y
+        print("IMPS", [type(x) for x in givens])
+        print("IMPS", [x.shape for x in givens])
         self.valid_eval_func = theano.function([],
                                                self.error,
                                                givens=givens,

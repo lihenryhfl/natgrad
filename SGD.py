@@ -7,8 +7,6 @@ from theano.gof import local_optimizer
 from theano.sandbox.scan import scan
 from theano.sandbox.rng_mrg import MRG_RandomStreams as RandomStreams
 
-from minres import minres, minres_messages
-from minres import minresQLP, minresQLP_messages
 from utils import forloop, safe_clone, print_time, print_mem, const
 
 

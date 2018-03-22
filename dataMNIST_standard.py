@@ -11,6 +11,23 @@ class DataMNIST(object):
         self.rng = rng
         self.unlabled = unlabled
         self.data = numpy.load(path)
+        # print(self.data.files)
+        # with open('mnist2.npz', 'wb') as f:
+            # import numpy as np
+            # np.savez(f, train_x=self.data['train'], train_y=self.data['train_labels'], test_x=self.data['test'], test_y=self.data['test_labels'])
+        # with open('mnist3.npz', 'wb') as f:
+            # import numpy as np
+            # train_x = self.data['train_x'].T
+            # train_y = self.data['train_y'].T.flatten()
+            # test_x = self.data['test_x'].T
+            # test_y = self.data['test_y'].T.flatten()
+            # print('IMP -1', train_x.shape, train_y.shape, test_x.shape, test_y.shape, np.unique(train_y), np.unique(test_y))
+            # valid_size = int(len(train_x) * .1)
+            # valid_x, train_x = train_x[:valid_size], train_x[valid_size:]
+            # valid_y, train_y = train_y[:valid_size], train_y[valid_size:]
+            # train_x, valid_x, test_x = [x.astype(np.float64) / 255. for x in [train_x, valid_x, test_x]]
+            # train_y, valid_y, test_y = [y.astype(np.int32) for y in [train_y, valid_y, test_y]]
+            # np.savez(f, train_x=train_x, train_y=train_y, valid_x=valid_x, valid_y=valid_y, test_x=test_x, test_y=test_y)
         self.xdim = self.data['train_x'].shape[1]
         self.ydim = numpy.max(self.data['train_y'])+1
 
